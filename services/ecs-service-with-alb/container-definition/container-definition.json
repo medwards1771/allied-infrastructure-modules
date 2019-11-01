@@ -1,0 +1,17 @@
+[
+  {
+    "name": "${container_name}",
+    "image": "${image}:${version}",
+    "cpu": ${cpu},
+    "memory": ${memory},
+    "essential": true,
+    "portMappings": ${port_mappings},
+    "environment": ${env_vars},
+    "logConfiguration": {
+      "logDriver": "syslog",
+      "options": {
+        "tag": "${container_name} ({{.ID}})"
+      }
+    }
+  }
+]

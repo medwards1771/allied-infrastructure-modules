@@ -1,0 +1,12 @@
+lambda:
+  build: .
+  volumes:
+    # Mount your local src folder into the Docker container, so every time you change the code on your host OS, it is
+    # immediately updated in the Docker container too, allowing you to do iterative development.
+    - ./python:/usr/src/lambda/src
+  environment:
+    # Pass your AWS credentials as env vars through to the Docker container so the lambda function can use your
+    # credentials to connect to AWS and run the ECS Task you specify
+    - AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY
+    - AWS_SESSION_TOKEN
